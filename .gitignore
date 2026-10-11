@@ -3,3 +3,9 @@
 !.python-version
 __pycache__/
 *.csv
+*.bin
+*.parquet
+s3.env
+delete.json
+*.duckdb
+init.sql
