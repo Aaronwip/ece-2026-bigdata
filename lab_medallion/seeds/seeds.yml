@@ -1,0 +1,13 @@
+seeds:
+  - name: states
+    description: US states, territories and military regions with their range of zip codes.
+    config:
+      column_types:
+        code: varchar
+        zip_min: integer
+        zip_max: integer
+    columns:
+      - name: code
+        data_tests:
+          - unique
+          - not_null

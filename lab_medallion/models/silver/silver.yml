@@ -7,6 +7,11 @@ models:
         data_tests:
           - unique
           - not_null
+      - name: username_normalized
+        description: Username without leading and trailing whitespace, in lowercase.
+        data_tests:
+          - unique
+          - not_null
       - name: email
         data_tests:
           - unique
@@ -16,6 +21,12 @@ models:
           - accepted_values:
               arguments:
                 values: ["F", "M"]
+      - name: birthdate
+        description: Birthdate of the user, NULL when it is later than the first order.
+      - name: birthdate_is_valid
+        description: True when the original birthdate is not later than the first order of the user.
+        data_tests:
+          - not_null
       - name: state
         description: Two letters code of the state, territory or military region.
         data_tests:
@@ -41,12 +52,14 @@ models:
                 field: user_id
       - name: quantity
         data_tests:
+          - not_null
           - accepted_values:
               arguments:
                 values: [1, 2, 3, 4, 5]
                 quote: false
       - name: product
         data_tests:
+          - not_null
           - accepted_values:
               arguments:
                 values: ["bread", "brioche", "cookie", "croissant", "donut", "drink"]
