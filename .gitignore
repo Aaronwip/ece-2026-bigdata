@@ -8,4 +8,7 @@ __pycache__/
 s3.env
 delete.json
 *.duckdb
-init.sql
+init.sqltarget/
+dbt_packages/
+logs/
+*.duckdb
